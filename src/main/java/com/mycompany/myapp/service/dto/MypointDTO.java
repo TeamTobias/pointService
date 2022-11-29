@@ -1,7 +1,7 @@
 package com.mycompany.myapp.service.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -18,7 +18,7 @@ public class MypointDTO implements Serializable {
 
     private Long unit_amount;
 
-    private LocalDate createdAt;
+    private Date createdAt;
 
     public String getId() {
         return id;
@@ -52,11 +52,11 @@ public class MypointDTO implements Serializable {
         this.unit_amount = unit_amount;
     }
 
-    public LocalDate getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
