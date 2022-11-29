@@ -63,11 +63,8 @@ class MypointResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Mypoint createEntity() {
-        Mypoint mypoint = new Mypoint()
-            .userid(DEFAULT_USERID)
-            .total_amount(DEFAULT_TOTAL_AMOUNT)
-            .unit_amount(DEFAULT_UNIT_AMOUNT)
-            .createdAt(DEFAULT_CREATED_AT);
+        Mypoint mypoint = new Mypoint().userid(DEFAULT_USERID).total_amount(DEFAULT_TOTAL_AMOUNT).unit_amount(DEFAULT_UNIT_AMOUNT);
+        //            .createdAt(DEFAULT_CREATED_AT);
         return mypoint;
     }
 
@@ -78,11 +75,8 @@ class MypointResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Mypoint createUpdatedEntity() {
-        Mypoint mypoint = new Mypoint()
-            .userid(UPDATED_USERID)
-            .total_amount(UPDATED_TOTAL_AMOUNT)
-            .unit_amount(UPDATED_UNIT_AMOUNT)
-            .createdAt(UPDATED_CREATED_AT);
+        Mypoint mypoint = new Mypoint().userid(UPDATED_USERID).total_amount(UPDATED_TOTAL_AMOUNT).unit_amount(UPDATED_UNIT_AMOUNT);
+        //            .createdAt(UPDATED_CREATED_AT);
         return mypoint;
     }
 
@@ -178,11 +172,8 @@ class MypointResourceIT {
 
         // Update the mypoint
         Mypoint updatedMypoint = mypointRepository.findById(mypoint.getId()).get();
-        updatedMypoint
-            .userid(UPDATED_USERID)
-            .total_amount(UPDATED_TOTAL_AMOUNT)
-            .unit_amount(UPDATED_UNIT_AMOUNT)
-            .createdAt(UPDATED_CREATED_AT);
+        updatedMypoint.userid(UPDATED_USERID).total_amount(UPDATED_TOTAL_AMOUNT).unit_amount(UPDATED_UNIT_AMOUNT);
+        //            .createdAt(UPDATED_CREATED_AT);
         MypointDTO mypointDTO = mypointMapper.toDto(updatedMypoint);
 
         restMypointMockMvc
@@ -200,7 +191,7 @@ class MypointResourceIT {
         assertThat(testMypoint.getUserid()).isEqualTo(UPDATED_USERID);
         assertThat(testMypoint.getTotal_amount()).isEqualTo(UPDATED_TOTAL_AMOUNT);
         assertThat(testMypoint.getUnit_amount()).isEqualTo(UPDATED_UNIT_AMOUNT);
-        assertThat(testMypoint.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        //        assertThat(testMypoint.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
     }
 
     @Test
@@ -276,7 +267,7 @@ class MypointResourceIT {
         Mypoint partialUpdatedMypoint = new Mypoint();
         partialUpdatedMypoint.setId(mypoint.getId());
 
-        partialUpdatedMypoint.createdAt(UPDATED_CREATED_AT);
+        //        partialUpdatedMypoint.createdAt(UPDATED_CREATED_AT);
 
         restMypointMockMvc
             .perform(
@@ -307,11 +298,8 @@ class MypointResourceIT {
         Mypoint partialUpdatedMypoint = new Mypoint();
         partialUpdatedMypoint.setId(mypoint.getId());
 
-        partialUpdatedMypoint
-            .userid(UPDATED_USERID)
-            .total_amount(UPDATED_TOTAL_AMOUNT)
-            .unit_amount(UPDATED_UNIT_AMOUNT)
-            .createdAt(UPDATED_CREATED_AT);
+        partialUpdatedMypoint.userid(UPDATED_USERID).total_amount(UPDATED_TOTAL_AMOUNT).unit_amount(UPDATED_UNIT_AMOUNT);
+        //            .createdAt(UPDATED_CREATED_AT);
 
         restMypointMockMvc
             .perform(
@@ -328,7 +316,7 @@ class MypointResourceIT {
         assertThat(testMypoint.getUserid()).isEqualTo(UPDATED_USERID);
         assertThat(testMypoint.getTotal_amount()).isEqualTo(UPDATED_TOTAL_AMOUNT);
         assertThat(testMypoint.getUnit_amount()).isEqualTo(UPDATED_UNIT_AMOUNT);
-        assertThat(testMypoint.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        //        assertThat(testMypoint.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
     }
 
     @Test
