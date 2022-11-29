@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpMessage;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,8 +49,18 @@ public class MypointServiceImpl implements MypointService {
 
     @Override
     public MypointDTO update(MypointDTO mypointDTO) {
-        log.debug("Request to update Mypoint : {}", mypointDTO);
+        log.debug("Request to save Mypoint : {}", mypointDTO);
         Mypoint mypoint = mypointMapper.toEntity(mypointDTO);
+
+        mypoint.setUnit_amount(mypoint.getUnit_amount() * -1);
+
+        long temp = mypointRepository.findTopByUseridOrderByCreatedAtDesc(mypoint.getUserid()).getTotal_amount() + mypoint.getUnit_amount();
+        if (temp < 0) {
+            throw new RuntimeException("잔액이 부족합니다.");
+        } else {
+            mypoint.setTotal_amount(temp);
+        }
+
         mypoint = mypointRepository.save(mypoint);
         return mypointMapper.toDto(mypoint);
     }
