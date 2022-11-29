@@ -1,7 +1,8 @@
 package com.mycompany.myapp.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -28,7 +29,8 @@ public class Mypoint implements Serializable {
     private Long unit_amount;
 
     @Field("created_at")
-    private LocalDate createdAt;
+    @CreatedDate
+    private Date createdAt;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -84,16 +86,16 @@ public class Mypoint implements Serializable {
         this.unit_amount = unit_amount;
     }
 
-    public LocalDate getCreatedAt() {
+    public Date getCreatedAt() {
         return this.createdAt;
     }
 
-    public Mypoint createdAt(LocalDate createdAt) {
+    public Mypoint createdAt(Date createdAt) {
         this.setCreatedAt(createdAt);
         return this;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
