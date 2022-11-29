@@ -10,7 +10,7 @@ import java.util.Objects;
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class MypointDTO implements Serializable {
 
-    private String id;
+    //    private String id;
 
     private String userid;
 
@@ -20,13 +20,13 @@ public class MypointDTO implements Serializable {
 
     private Date createdAt;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    //    public String getId() {
+    //        return id;
+    //    }
+    //
+    //    public void setId(String id) {
+    //        this.id = id;
+    //    }
 
     public String getUserid() {
         return userid;
@@ -70,22 +70,22 @@ public class MypointDTO implements Serializable {
         }
 
         MypointDTO mypointDTO = (MypointDTO) o;
-        if (this.id == null) {
+        if (this.userid == null) {
             return false;
         }
-        return Objects.equals(this.id, mypointDTO.id);
+        return Objects.equals(this.userid, mypointDTO.userid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id);
+        return Objects.hash(this.userid);
     }
 
     // prettier-ignore
     @Override
     public String toString() {
         return "MypointDTO{" +
-            "id='" + getId() + "'" +
+//            "id='" + getId() + "'" +
             ", userid='" + getUserid() + "'" +
             ", total_amount=" + getTotal_amount() +
             ", unit_amount=" + getUnit_amount() +

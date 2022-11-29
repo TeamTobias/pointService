@@ -47,19 +47,29 @@ public class MypointResource {
         this.mypointRepository = mypointRepository;
     }
 
+    /*포인트 적립*/
     @PostMapping("/v1")
     public ResponseEntity<MypointDTO> createMypoint(@RequestBody MypointDTO mypointDTO) throws URISyntaxException {
         log.debug("REST request to save Mypoint : {}", mypointDTO);
-        if (mypointDTO.getId() != null) throw new BadRequestAlertException(
+        if (mypointDTO.getUserid() != null) throw new BadRequestAlertException(
             "A new mypoint cannot already have an ID",
             ENTITY_NAME,
             "idexists"
         );
         MypointDTO result = mypointService.save(mypointDTO);
         return ResponseEntity
-            .created(new URI("/api/mypoints/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId()))
+            .created(new URI("/api/mypoints/" + result.getUserid()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getUserid()))
             .body(result);
+    }
+
+    /*내 포인트 조회*/
+    @GetMapping("/v1/{userid}")
+    public ResponseEntity<Iterable<MypointDTO>> getMypointbyUserid(@PathVariable String userid) {
+        log.debug("REST request to get Mypoint : {}", userid);
+        Iterable<MypointDTO> mypointDTO = mypointService.findByUserid(userid);
+
+        return ResponseEntity.status(HttpStatus.OK).body(mypointDTO);
     }
 
     @PutMapping("/v1/{id}")
@@ -68,9 +78,9 @@ public class MypointResource {
         @RequestBody MypointDTO mypointDTO
     ) throws URISyntaxException {
         log.debug("REST request to update Mypoint : {}, {}", id, mypointDTO);
-        if (mypointDTO.getId() == null) throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        if (mypointDTO.getUserid() == null) throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
 
-        if (!Objects.equals(id, mypointDTO.getId())) throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
+        if (!Objects.equals(id, mypointDTO.getUserid())) throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
 
         if (!mypointRepository.existsById(id)) throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
 
@@ -78,7 +88,7 @@ public class MypointResource {
 
         return ResponseEntity
             .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, mypointDTO.getId()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, mypointDTO.getUserid()))
             .body(result);
     }
 
@@ -144,14 +154,5 @@ public class MypointResource {
         log.debug("REST request to delete Mypoint : {}", id);
         mypointService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id)).build();
-    }
-
-    /*내 포인트 조회*/
-    @GetMapping("/v1/{userid}")
-    public ResponseEntity<Iterable<MypointDTO>> getMypointbyUserid(@PathVariable String userid) {
-        log.debug("REST request to get Mypoint : {}", userid);
-        Iterable<MypointDTO> mypointDTO = mypointService.findByUserid(userid);
-
-        return ResponseEntity.status(HttpStatus.OK).body(mypointDTO);
     }
 }

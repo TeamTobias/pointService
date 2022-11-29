@@ -178,7 +178,7 @@ class MypointResourceIT {
 
         restMypointMockMvc
             .perform(
-                put(ENTITY_API_URL_ID, mypointDTO.getId())
+                put(ENTITY_API_URL_ID, mypointDTO.getUserid())
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(TestUtil.convertObjectToJsonBytes(mypointDTO))
             )
@@ -205,7 +205,7 @@ class MypointResourceIT {
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restMypointMockMvc
             .perform(
-                put(ENTITY_API_URL_ID, mypointDTO.getId())
+                put(ENTITY_API_URL_ID, mypointDTO.getUserid())
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(TestUtil.convertObjectToJsonBytes(mypointDTO))
             )
@@ -330,7 +330,7 @@ class MypointResourceIT {
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restMypointMockMvc
             .perform(
-                patch(ENTITY_API_URL_ID, mypointDTO.getId())
+                patch(ENTITY_API_URL_ID, mypointDTO.getUserid())
                     .contentType("application/merge-patch+json")
                     .content(TestUtil.convertObjectToJsonBytes(mypointDTO))
             )

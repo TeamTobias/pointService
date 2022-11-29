@@ -58,7 +58,7 @@ public class MypointServiceImpl implements MypointService {
         log.debug("Request to partially update Mypoint : {}", mypointDTO);
 
         return mypointRepository
-            .findById(mypointDTO.getId())
+            .findById(mypointDTO.getUserid())
             .map(existingMypoint -> {
                 mypointMapper.partialUpdate(existingMypoint, mypointDTO);
 

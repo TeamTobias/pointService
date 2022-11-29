@@ -11,14 +11,14 @@ class MypointDTOTest {
     void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(MypointDTO.class);
         MypointDTO mypointDTO1 = new MypointDTO();
-        mypointDTO1.setId("id1");
+        mypointDTO1.setUserid("id1");
         MypointDTO mypointDTO2 = new MypointDTO();
         assertThat(mypointDTO1).isNotEqualTo(mypointDTO2);
-        mypointDTO2.setId(mypointDTO1.getId());
+        mypointDTO2.setUserid(mypointDTO1.getUserid());
         assertThat(mypointDTO1).isEqualTo(mypointDTO2);
-        mypointDTO2.setId("id2");
+        mypointDTO2.setUserid("id2");
         assertThat(mypointDTO1).isNotEqualTo(mypointDTO2);
-        mypointDTO1.setId(null);
+        mypointDTO1.setUserid(null);
         assertThat(mypointDTO1).isNotEqualTo(mypointDTO2);
     }
 }
