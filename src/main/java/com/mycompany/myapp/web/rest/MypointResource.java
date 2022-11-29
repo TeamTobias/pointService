@@ -47,19 +47,14 @@ public class MypointResource {
         this.mypointRepository = mypointRepository;
     }
 
-    /**
-     * {@code POST  /mypoints} : Create a new mypoint.
-     *
-     * @param mypointDTO the mypointDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new mypointDTO, or with status {@code 400 (Bad Request)} if the mypoint has already an ID.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
     @PostMapping("/v1")
     public ResponseEntity<MypointDTO> createMypoint(@RequestBody MypointDTO mypointDTO) throws URISyntaxException {
         log.debug("REST request to save Mypoint : {}", mypointDTO);
-        if (mypointDTO.getId() != null) {
-            throw new BadRequestAlertException("A new mypoint cannot already have an ID", ENTITY_NAME, "idexists");
-        }
+        if (mypointDTO.getId() != null) throw new BadRequestAlertException(
+            "A new mypoint cannot already have an ID",
+            ENTITY_NAME,
+            "idexists"
+        );
         MypointDTO result = mypointService.save(mypointDTO);
         return ResponseEntity
             .created(new URI("/api/mypoints/" + result.getId()))
@@ -67,34 +62,20 @@ public class MypointResource {
             .body(result);
     }
 
-    /**
-     * {@code PUT  /mypoints/:id} : Updates an existing mypoint.
-     *
-     * @param id the id of the mypointDTO to save.
-     * @param mypointDTO the mypointDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated mypointDTO,
-     * or with status {@code 400 (Bad Request)} if the mypointDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the mypointDTO couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
     @PutMapping("/v1/{id}")
     public ResponseEntity<MypointDTO> updateMypoint(
         @PathVariable(value = "id", required = false) final String id,
         @RequestBody MypointDTO mypointDTO
     ) throws URISyntaxException {
         log.debug("REST request to update Mypoint : {}, {}", id, mypointDTO);
-        if (mypointDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        if (!Objects.equals(id, mypointDTO.getId())) {
-            throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
-        }
+        if (mypointDTO.getId() == null) throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
 
-        if (!mypointRepository.existsById(id)) {
-            throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
-        }
+        if (!Objects.equals(id, mypointDTO.getId())) throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
+
+        if (!mypointRepository.existsById(id)) throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
 
         MypointDTO result = mypointService.update(mypointDTO);
+
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, mypointDTO.getId()))
@@ -137,12 +118,6 @@ public class MypointResource {
     //        );
     //    }
 
-    /**
-     * {@code GET  /mypoints} : get all the mypoints.
-     *
-     * @param pageable the pagination information.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of mypoints in body.
-     */
     @GetMapping("/v1")
     public ResponseEntity<List<MypointDTO>> getAllMypoints(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of Mypoints");
@@ -164,12 +139,6 @@ public class MypointResource {
     //        return ResponseUtil.wrapOrNotFound(mypointDTO);
     //    }
 
-    /**
-     * {@code DELETE  /mypoints/:id} : delete the "id" mypoint.
-     *
-     * @param id the id of the mypointDTO to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-     */
     @DeleteMapping("/v1/{id}")
     public ResponseEntity<Void> deleteMypoint(@PathVariable String id) {
         log.debug("REST request to delete Mypoint : {}", id);
@@ -183,7 +152,6 @@ public class MypointResource {
         log.debug("REST request to get Mypoint : {}", userid);
         Iterable<MypointDTO> mypointDTO = mypointService.findByUserid(userid);
 
-        // Optional to list
         return ResponseEntity.status(HttpStatus.OK).body(mypointDTO);
     }
 }
