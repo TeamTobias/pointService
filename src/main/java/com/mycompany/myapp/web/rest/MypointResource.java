@@ -6,6 +6,7 @@ import com.mycompany.myapp.service.dto.MypointDTO;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -174,5 +175,15 @@ public class MypointResource {
         log.debug("REST request to delete Mypoint : {}", id);
         mypointService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id)).build();
+    }
+
+    /*내 포인트 조회*/
+    @GetMapping("/mypoints/all/{userid}")
+    public ResponseEntity<Iterable<MypointDTO>> getMypointbyUserid(@PathVariable String userid) {
+        log.debug("REST request to get Mypoint : {}", userid);
+        Iterable<MypointDTO> mypointDTO = mypointService.findByUserid(userid);
+
+        // Optional to list
+        return ResponseEntity.status(HttpStatus.OK).body(mypointDTO);
     }
 }

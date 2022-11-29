@@ -5,6 +5,7 @@ import com.mycompany.myapp.repository.MypointRepository;
 import com.mycompany.myapp.service.MypointService;
 import com.mycompany.myapp.service.dto.MypointDTO;
 import com.mycompany.myapp.service.mapper.MypointMapper;
+import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,6 +71,14 @@ public class MypointServiceImpl implements MypointService {
     public Optional<MypointDTO> findOne(String id) {
         log.debug("Request to get Mypoint : {}", id);
         return mypointRepository.findById(id).map(mypointMapper::toDto);
+    }
+
+    @Override
+    public Iterable<MypointDTO> findByUserid(String userid) {
+        log.debug("Request to get Mypoint by userid : {}", userid);
+
+        // entity to dto
+        return mypointMapper.toDto((List<Mypoint>) mypointRepository.findByUserid(userid));
     }
 
     @Override

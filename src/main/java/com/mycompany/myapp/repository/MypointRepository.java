@@ -1,6 +1,7 @@
 package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.Mypoint;
+import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,4 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface MypointRepository extends MongoRepository<Mypoint, String> {}
+public interface MypointRepository extends MongoRepository<Mypoint, String> {
+    Iterable<Mypoint> findByUserid(String userid);
+}

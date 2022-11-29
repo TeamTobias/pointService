@@ -1,5 +1,6 @@
 package com.mycompany.myapp.service;
 
+import com.mycompany.myapp.domain.Mypoint;
 import com.mycompany.myapp.service.dto.MypointDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -48,6 +49,14 @@ public interface MypointService {
      * @return the entity.
      */
     Optional<MypointDTO> findOne(String id);
+
+    /*
+     * Get the "userid" mypoint.
+     *
+     * @param userid the userid of the entity.
+     * @return the entity.
+     */
+    Iterable<MypointDTO> findByUserid(String userid);
 
     /**
      * Delete the "id" mypoint.
