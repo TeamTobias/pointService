@@ -7,8 +7,8 @@ services:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - SPRING_DATA_MONGODB_URI=mongodb://pointservice2-mongodb:27017
-      - SPRING_DATA_MONGODB_DATABASE=pointService2
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://test:93414223@cluster0.3f1nxzq.mongodb.net/?retryWrites=true&w=majority
+      - SPRING_DATA_MONGODB_DATABASE=mygrocerylist
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
       - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka:9092
   pointservice2-mongodb:

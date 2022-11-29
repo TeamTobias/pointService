@@ -3,6 +3,7 @@ package com.mycompany.myapp.security;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;

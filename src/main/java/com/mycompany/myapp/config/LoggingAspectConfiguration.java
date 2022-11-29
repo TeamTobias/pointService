@@ -6,7 +6,7 @@ import org.springframework.core.env.Environment;
 import tech.jhipster.config.JHipsterConstants;
 
 @Configuration
-@EnableAspectJAutoProxy
+//@EnableAspectJAutoProxy
 public class LoggingAspectConfiguration {
 
     @Bean

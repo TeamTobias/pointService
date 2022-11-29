@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.Profiles;
 import tech.jhipster.config.JHipsterConstants;
@@ -19,6 +20,7 @@ import tech.jhipster.config.JHipsterConstants;
  * By default, it only runs with the "dev" profile.
  */
 @Aspect
+@Profile("prod")
 public class LoggingAspect {
 
     private final Environment env;

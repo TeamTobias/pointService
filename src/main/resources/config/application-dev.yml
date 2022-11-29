@@ -32,8 +32,8 @@ spring:
       indent-output: true
   data:
     mongodb:
-      uri: mongodb://localhost:27017
-      database: pointService2
+      uri: mongodb+srv://test:93414223@cluster0.3f1nxzq.mongodb.net/?retryWrites=true&w=majority
+      database: mygrocerylist
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:

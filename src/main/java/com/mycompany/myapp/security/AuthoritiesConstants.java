@@ -1,5 +1,7 @@
 package com.mycompany.myapp.security;
 
+import org.springframework.context.annotation.Profile;
+
 /**
  * Constants for Spring Security authorities.
  */

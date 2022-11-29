@@ -1,0 +1,30 @@
+{
+  "changelogDate": "20221129012723",
+  "clientRootFolder": "pointService2",
+  "databaseType": "mongodb",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "userid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "total_amount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "unit_amount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "microserviceName": "pointService2",
+  "name": "Mypoint",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}
