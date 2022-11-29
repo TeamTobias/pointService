@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service Implementation for managing {@link Mypoint}.
@@ -31,9 +32,15 @@ public class MypointServiceImpl implements MypointService {
     }
 
     @Override
+    @Transactional
     public MypointDTO save(MypointDTO mypointDTO) {
         log.debug("Request to save Mypoint : {}", mypointDTO);
         Mypoint mypoint = mypointMapper.toEntity(mypointDTO);
+
+        mypoint.setTotal_amount(
+            mypointRepository.findTopByUseridOrderByCreatedAtDesc(mypoint.getUserid()).getTotal_amount() + mypoint.getUnit_amount()
+        );
+
         mypoint = mypointRepository.save(mypoint);
         return mypointMapper.toDto(mypoint);
     }

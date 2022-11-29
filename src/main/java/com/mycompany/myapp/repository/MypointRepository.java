@@ -13,4 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MypointRepository extends MongoRepository<Mypoint, String> {
     Iterable<Mypoint> findByUserid(String userid);
+
+    Mypoint findTopByUseridOrderByCreatedAtDesc(String userid);
 }
