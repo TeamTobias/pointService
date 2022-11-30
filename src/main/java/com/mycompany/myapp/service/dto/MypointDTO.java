@@ -10,8 +10,6 @@ import java.util.Objects;
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class MypointDTO implements Serializable {
 
-    private String id;
-
     private String userid;
 
     private Long total_amount;
@@ -19,14 +17,6 @@ public class MypointDTO implements Serializable {
     private Long unit_amount;
 
     private Date createdAt;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getUserid() {
         return userid;
@@ -62,30 +52,26 @@ public class MypointDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof MypointDTO)) {
-            return false;
-        }
+        if (this == o) return true;
+
+        if (!(o instanceof MypointDTO)) return false;
 
         MypointDTO mypointDTO = (MypointDTO) o;
-        if (this.id == null) {
-            return false;
-        }
-        return Objects.equals(this.id, mypointDTO.id);
+
+        if (this.userid == null) return false;
+
+        return Objects.equals(this.userid, mypointDTO.userid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id);
+        return Objects.hash(this.userid);
     }
 
     // prettier-ignore
     @Override
     public String toString() {
         return "MypointDTO{" +
-            "id='" + getId() + "'" +
             ", userid='" + getUserid() + "'" +
             ", total_amount=" + getTotal_amount() +
             ", unit_amount=" + getUnit_amount() +

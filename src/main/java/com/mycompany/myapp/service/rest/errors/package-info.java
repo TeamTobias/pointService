@@ -3,4 +3,4 @@
  *
  * More information on https://github.com/zalando/problem-spring-web
  */
-package com.mycompany.myapp.web.rest.errors;
+package com.mycompany.myapp.service.rest.errors;
