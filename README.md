@@ -154,3 +154,4 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v7.9.3/setting-up-ci/
 [node.js]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
+[//]: # 'mvn package -D jib.to.auth.username="" -Djib.to.auth.password=""'

@@ -1,4 +1,4 @@
-package com.mycompany.myapp.web.rest.errors;
+package com.mycompany.myapp.service.rest.errors;
 
 import java.net.URI;
 
