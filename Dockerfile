@@ -9,6 +9,6 @@ RUN mvn package
 # Package
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/target/*.jar pointservice2.jar
+COPY --from=build /app/target/*.jar point-service-2.jar
 EXPOSE 8003
-ENTRYPOINT ["java","-jar","pointservice2.jar"]
+ENTRYPOINT ["java","-jar","point-service-2.jar"]
