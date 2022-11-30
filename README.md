@@ -154,3 +154,9 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v7.9.3/setting-up-ci/
 [node.js]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
+
+- 도커 이미지 생성
+
+```shell
+mvnw package -Pprod jib:dockerBuild
+```
