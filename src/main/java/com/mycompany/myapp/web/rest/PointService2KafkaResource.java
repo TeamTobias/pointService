@@ -1,4 +1,4 @@
-package com.mycompany.myapp.service.rest;
+package com.mycompany.myapp.web.rest;
 
 import static org.springframework.web.servlet.mvc.method.annotation.SseEmitter.event;
 

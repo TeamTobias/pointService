@@ -10,7 +10,6 @@ import com.mycompany.myapp.domain.Mypoint;
 import com.mycompany.myapp.repository.MypointRepository;
 import com.mycompany.myapp.service.dto.MypointDTO;
 import com.mycompany.myapp.service.mapper.MypointMapper;
-import com.mycompany.myapp.service.rest.MypointResource;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;

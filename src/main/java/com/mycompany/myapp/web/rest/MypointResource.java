@@ -1,9 +1,9 @@
-package com.mycompany.myapp.service.rest;
+package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.repository.MypointRepository;
 import com.mycompany.myapp.service.MypointService;
 import com.mycompany.myapp.service.dto.MypointDTO;
-import com.mycompany.myapp.service.rest.errors.BadRequestAlertException;
+import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
