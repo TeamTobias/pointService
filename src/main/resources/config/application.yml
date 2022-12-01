@@ -91,7 +91,7 @@ mongock:
 
 spring:
   application:
-    name: pointService2
+    name: pointservice
   cloud:
     stream:
       kafka:
