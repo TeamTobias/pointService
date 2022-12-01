@@ -539,7 +539,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>pointservice2:latest</image>
+                            <image>registry.hub.docker.com/imkunyoung/pointservice2</image>
                         </to>
                         <container>
                             <entrypoint>

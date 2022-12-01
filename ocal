@@ -1,0 +1,63 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< com.mycompany.myapp:point-service-2 >-----------------
+[INFO] Building Point Service 2 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:copy-resources (default-resources) @ point-service-2 ---
+[INFO] Copying 6 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ point-service-2 ---
+[INFO] Copying 6 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.1.0:enforce (enforce-versions) @ point-service-2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.1.0:enforce (enforce-dependencyConvergence) @ point-service-2 ---
+[WARNING] 
+Dependency convergence error for org.checkerframework:checker-qual:jar:3.12.0:compile paths to dependency are:
++-com.mycompany.myapp:point-service-2:jar:0.0.1-SNAPSHOT
+  +-io.mongock:mongodb-springdata-v3-driver:jar:5.1.5:compile
+    +-io.mongock:mongock-driver-core:jar:5.1.5:compile
+      +-io.mongock:mongock-driver-api:jar:5.1.5:compile
+        +-com.google.guava:guava:jar:31.1-jre:compile
+          +-org.checkerframework:checker-qual:jar:3.12.0:compile
+and
++-com.mycompany.myapp:point-service-2:jar:0.0.1-SNAPSHOT
+  +-org.zalando:problem-spring-web:jar:0.27.0:compile
+    +-org.zalando:problem:jar:0.26.0:compile
+      +-org.checkerframework:checker-qual:jar:3.14.0:compile
+
+[WARNING] 
+Dependency convergence error for org.apiguardian:apiguardian-api:jar:1.1.2:compile paths to dependency are:
++-com.mycompany.myapp:point-service-2:jar:0.0.1-SNAPSHOT
+  +-org.zalando:problem-spring-web:jar:0.27.0:compile
+    +-org.zalando:problem-violations:jar:0.27.0:compile
+      +-org.apiguardian:apiguardian-api:jar:1.1.2:compile
+and
++-com.mycompany.myapp:point-service-2:jar:0.0.1-SNAPSHOT
+  +-org.zalando:problem-spring-web:jar:0.27.0:compile
+    +-org.zalando:problem-spring-common:jar:0.27.0:compile
+      +-org.apiguardian:apiguardian-api:jar:1.1.2:compile
+and
++-com.mycompany.myapp:point-service-2:jar:0.0.1-SNAPSHOT
+  +-org.zalando:problem-spring-web:jar:0.27.0:compile
+    +-org.apiguardian:apiguardian-api:jar:1.1.2:compile
+and
++-com.mycompany.myapp:point-service-2:jar:0.0.1-SNAPSHOT
+  +-org.zalando:problem-spring-web:jar:0.27.0:compile
+    +-org.zalando:faux-pas:jar:0.9.0:compile
+      +-org.apiguardian:apiguardian-api:jar:1.1.1:compile
+
+[WARNING] Rule 0: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+Failed while enforcing releasability. See above detailed error message.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.8:prepare-agent (pre-unit-tests) @ point-service-2 ---
+[INFO] argLine set to "-javaagent:C:\\Users\\ur2ku\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.8\\org.jacoco.agent-0.8.8-runtime.jar=destfile=C:\\Users\\ur2ku\\OneDrive\\πŸ≈¡ »≠∏È\\WORKSPACE\\[DDD]workspace\\pointService2\\target\\jacoco.exec" -Djava.security.egd=file:/dev/./urandom -Xmx1G
+[INFO] 
+[INFO] --- properties-maven-plugin:1.1.0:read-project-properties (default) @ point-service-2 ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ point-service-2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 50 source files to C:\Users\ur2ku\OneDrive\πŸ≈¡ »≠∏È\WORKSPACE\[DDD]workspace\pointService2\target\classes
