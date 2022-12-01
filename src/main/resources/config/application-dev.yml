@@ -21,6 +21,8 @@ logging:
     com.mycompany.myapp: DEBUG
 
 spring:
+  application:
+    name: pointservice
   devtools:
     restart:
       enabled: true
@@ -97,6 +99,7 @@ jhipster:
 # ===================================================================
 
 # application:
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -105,3 +108,18 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+# ===================================================================
+# Spring Boot Actuator configuration
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html
+# ===================================================================
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
