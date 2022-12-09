@@ -8,4 +8,4 @@ spring:
     config:
       uri: http://localhost:8888
       name: pointservice
-      profile: dev
+      profile: prod

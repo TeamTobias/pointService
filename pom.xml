@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany.myapp</groupId>
-    <artifactId>point-service-2</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>point-service</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
-    <name>Point Service 2</name>
+    <name>PointService</name>
     <description>Description for pointService2</description>
 
     <repositories>
@@ -90,6 +90,7 @@
     </dependencyManagement>
 
     <dependencies>
+
         <dependency>
             <groupId>tech.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
