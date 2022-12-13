@@ -25,6 +25,7 @@ import tech.jhipster.web.util.PaginationUtil;
  * REST controller for managing {@link com.mycompany.myapp.domain.Mypoint}.
  */
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/mypoints")
 public class MypointResource {
 

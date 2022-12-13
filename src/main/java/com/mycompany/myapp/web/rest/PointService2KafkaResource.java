@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/point-service-2-kafka")
 public class PointService2KafkaResource {
 
